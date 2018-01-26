@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加抽奖</title>
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<form action="add" method="post">
+
+
+
+设置中奖总概率：<div id="allgai"><input type="text" name="gailv" id="all">%</div>
+<br>
+<a href="javascript:;" class="btn btn-info" id="add">添加奖项</a>
+<table class="table">
+    <tr>
+        <th>奖项</th>
+        <th>金额</th>
+        <th>形式</th>
+        <th>份数</th>
+        <th>限制发放</th>
+    </tr>
+
+    <tr>
+        <td><input type="text" name="name" placeholder="名称"></td>
+        <td><input type="text" name="meney" placeholder="单份金额"></td>
+        <td><label class="radio-inline">
+            <input type="radio" name="type" value="1">现金
+        </label>
+            <label class="radio-inline">
+                <input type="radio" name="type"value="2">代金券
+            </label>
+          </td>
+        <td><input type="text" name="num" placeholder="总份数"></td>
+        <td>
+            <label class="radio-inline">
+                <input type="radio" name="is_hold" value="0">否
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="is_hold"  value="1">是
+            </label>
+        </td>
+    </tr>
+
+
+</table>
+
+    <input type="submit" value="确认提交" class="btn btn-success">
+</form>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $(function () {
+        $('#all').blur(function(){
+            var all=$('#all').val()
+            $('#allgai').html(all+'%')
+        })
+        $('#add').click(function(){
+
+            var tr='<tr><td><input type="text" name="name" placeholder="名称"></td>' +
+                   '<td><input type="text" name="meney" placeholder="单份金额"></td>' +
+                   '<td><label class="radio-inline">' +
+                   '<input type="radio" name="type" value="1">现金' +
+                   '</label>' +
+                   '<label class="radio-inline">' +
+                   '<input type="radio" name="type"value="2">代金券' +
+                   '</label>' +
+                   '</td>' +
+                   '<td><input type="text" name="num" placeholder="总份数"></td>' +
+                   '<td>' +
+                   '<label class="radio-inline">' +
+                   '<input type="radio" name="is_hold" value="0">否' +
+                   '</label>' +
+                   '<label class="radio-inline">' +
+                   '<input type="radio" name="is_hold"  value="1">是' +
+                   '</label>' +
+                   '</td></tr>'
+            $('.table').append(tr)
+
+
+        })
+
+    })
+</script>
+</body>
+</html>
